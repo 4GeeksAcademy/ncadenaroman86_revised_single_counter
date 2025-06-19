@@ -1,4 +1,33 @@
-/* 
+/* body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-container {
+  display: flex;
+  background-color: #111;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
+}
+
+.digit {
+  font-family: monospace;
+  font-size: 48px;
+  color: white;
+  background-color: #222;
+  padding: 10px 16px;
+  margin: 0 4px;
+  border-radius: 6px;
+  min-width: 40px;
+  text-align: center;
+}
+
 
     You can write your own styles here...
     

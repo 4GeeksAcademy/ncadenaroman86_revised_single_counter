@@ -1,18 +1,27 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React, { useEffect, useState } from "react";
+import "./styles.css";
 
-//Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap"
+export default function App() {
+  const [seconds, setSeconds] = useState(0);
 
-// index.css'
-import '../styles/index.css'
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-// components
-import Home from './components/Home';
+  // Pad with zeros and split into digits
+  const padded = String(seconds).padStart(6, "0").split("");
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+  return (
+    <div className="timer-container">
+      <div className="digit">⏱</div>
+      {padded.map((digit, index) => (
+        <div className="digit" key={index}>
+          {digit}
+        </div>
+      ))}
+    </div>
+  );
+}
